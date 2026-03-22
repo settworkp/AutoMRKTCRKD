@@ -2,11 +2,11 @@ name: Cracked Marketplace Bump
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # Every 30 minutes
-  workflow_dispatch:           # Allow manual trigger
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
   push:
     branches:
-      - main                   # Keep alive on every push
+      - main
 
 jobs:
   bump:
@@ -37,6 +37,8 @@ jobs:
 
   keep-alive:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -47,5 +49,5 @@ jobs:
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
-          git commit --allow-empty -m "keep alive"
+          git commit --allow-empty -m "keep alive [skip ci]"
           git push
