@@ -3,7 +3,7 @@ const { executablePath } = require("puppeteer-core");
 const fs = require("fs");
 
 const COOKIES = JSON.parse(process.env.COOKIES_JSON);
-const MESSAGE = "**💎🚀📈 ＳＩＧＮＡＴＵＲＥ　ＳＰＯＴ　ＦＯＲ　ＳＡＬＥ / ＧＲＯＷ　ＹＯＵＲ　ＢＵＳＩＮＥＳＳ　ＮＯＷ 📈🚀💎** https://cracked.sh/Thread-SIGNATURE-SPOTS-FOR-SALE--1901057";
+const MESSAGE = "**💎🚀📈 ＳＩＧＮＡＴＵＲＥ　ＳＰＯＴ　ＦＯＲ　ＳＡＬＥ / ＧＲＯＷ　ＹＯＵＲ　ＢＵＳＩＮＥＳＳ　ＮＯＷ 📈🚀💎** https://cracked.st/Thread-SIGNATURE-SPOTS-FOR-SALE--1901057";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -28,9 +28,9 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
   );
 
-  // Step 1: Go to cracked.sh and set cookies
-  console.log("🌐 Navigating to cracked.sh...");
-  await page.goto("https://cracked.sh/", { waitUntil: "networkidle2" });
+  // Step 1: Go to cracked.st and set cookies
+  console.log("🌐 Navigating to cracked.st...");
+  await page.goto("https://cracked.st/", { waitUntil: "networkidle2" });
 
   // Set cookies from secret
   for (const cookie of COOKIES) {
@@ -44,6 +44,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
         c.expires = Math.floor(c.expirationDate);
         delete c.expirationDate;
       }
+      c.domain = c.domain.replace("cracked.st", "cracked.st");
       c.domain = c.domain.startsWith(".") ? c.domain : "." + c.domain;
       await page.setCookie(c);
     } catch (e) {
@@ -56,7 +57,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   // Step 2: Reload page with cookies (logged in)
   console.log("🔄 Reloading page as logged-in user...");
-  await page.goto("https://cracked.sh/", { waitUntil: "networkidle2" });
+  await page.goto("https://cracked.st/", { waitUntil: "networkidle2" });
   await sleep(20000);
 
   // Step 3: Click on Marketplace tab in chat
