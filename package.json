@@ -1,0 +1,13 @@
+{
+  "name": "cracked-marketplace-bot",
+  "version": "1.0.0",
+  "description": "Auto post in cracked.sh marketplace chat",
+  "main": "bump.js",
+  "scripts": {
+    "start": "node bump.js"
+  },
+  "dependencies": {
+    "puppeteer-core": "^21.0.0",
+    "@puppeteer/browsers": "^1.4.0"
+  }
+}
