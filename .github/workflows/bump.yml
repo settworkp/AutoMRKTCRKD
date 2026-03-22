@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: "*/30 * * * *"   # Every 30 minutes
   workflow_dispatch:           # Allow manual trigger
+  push:
+    branches:
+      - main                   # Keep alive on every push
 
 jobs:
   bump:
@@ -31,3 +34,18 @@ jobs:
           COOKIES_JSON: ${{ secrets.COOKIES_JSON }}
           PUPPETEER_EXEC_PATH: /usr/bin/chromium-browser
         run: node bump.js
+
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Keep alive
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git commit --allow-empty -m "keep alive"
+          git push
