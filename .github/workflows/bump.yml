@@ -1,12 +1,7 @@
 name: Cracked Marketplace Bump
 
 on:
-  schedule:
-    - cron: "*/30 * * * *"
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+  workflow_dispatch:           # Déclenché uniquement par cron-job.org ou manuellement
 
 jobs:
   bump:
@@ -34,20 +29,3 @@ jobs:
           COOKIES_JSON: ${{ secrets.COOKIES_JSON }}
           PUPPETEER_EXEC_PATH: /usr/bin/chromium-browser
         run: node bump.js
-
-  keep-alive:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Keep alive
-        run: |
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
-          git commit --allow-empty -m "keep alive [skip ci]"
-          git push
