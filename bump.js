@@ -83,8 +83,8 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     process.exit(1);
   }
 
-  console.log("✅ Clicked Marketplace. Waiting 20s...");
-  await sleep(20000);
+  console.log("✅ Clicked Marketplace. Waiting 10s...");
+  await sleep(10000);
 
   // Step 4: Paste message in chat input (same method as Tampermonkey)
   console.log("✍️ Pasting message...");
@@ -105,15 +105,15 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     process.exit(1);
   }
 
-  console.log("✅ Message typed. Waiting 20s...");
-  await sleep(20000);
+  console.log("✅ Message typed. Waiting 10s...");
+  await sleep(10000);
 
   // Step 5: Press Enter to send
   console.log("📤 Sending message...");
   await page.keyboard.press("Enter");
 
-  console.log("✅ Message sent! Waiting 20s...");
-  await sleep(20000);
+  console.log("✅ Message sent! Waiting 10s...");
+  await sleep(10000);
 
   await browser.close();
   console.log("🎉 Done! Bot finished successfully.");
