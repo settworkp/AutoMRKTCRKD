@@ -1,7 +1,7 @@
 {
   "name": "cracked-marketplace-bot",
   "version": "1.0.0",
-  "description": "Auto post in cracked.st marketplace chat",
+  "description": "Auto post in cracked.ax marketplace chat",
   "main": "bump.js",
   "scripts": {
     "start": "node bump.js"
