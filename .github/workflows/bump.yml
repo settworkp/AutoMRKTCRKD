@@ -1,8 +1,6 @@
 name: Auto Post Cracked
 
 on:
-  schedule:
-    - cron: '*/30 * * * *'   # toutes les 30 minutes
   workflow_dispatch:
 
 jobs:
