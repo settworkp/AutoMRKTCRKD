@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer-core');
 
-const MESSAGE = '**💎🚀📈 ＳＩＧＮＡＴＵＲＥ　ＳＰＯＴ　ＦＯＲ　ＳＡＬＥ / ＧＲＯＷ　ＹＯＵＲ　ＢＵＳＩＮＥＳＳ　ＮＯＷ 📈🚀💎** https://cracked.sh/Thread-SIGNATURE-SPOTS-FOR-SALE--1901057';
+const MESSAGE = '**💎🚀📈 ＳＩＧＮＡＴＵＲＥ　ＳＰＯＴ　ＦＯＲ　ＳＡＬＥ / ＧＲＯＷ　ＹＯＵＲ　ＢＵＳＩＮＥＳＳ　ＮＯＷ 📈🚀💎** https://cracked.ax/Thread-SIGNATURE-SPOTS-FOR-SALE--1901057';
 
 function sleep(ms) {
     return new Promise(r => setTimeout(r, ms));
@@ -22,39 +22,38 @@ function sleep(ms) {
     });
 
     const page = await browser.newPage();
-
     page.setDefaultNavigationTimeout(120000);
     page.setDefaultTimeout(120000);
 
     try {
         console.log('🚀 Démarrage du bot...');
 
-        // ÉTAPE 1 — Aller sur cracked.ax et attendre 1 minute
+        // ÉTAPE 1 — Charger cracked.ax + attendre 45s
         console.log('🌐 Navigation vers cracked.ax...');
         await page.goto('https://cracked.ax', { waitUntil: 'domcontentloaded', timeout: 120000 });
-        console.log('✅ Page chargée. Attente 1 minute...');
-        await sleep(60 * 1000);
+        console.log('✅ Page chargée. Attente 45s...');
+        await sleep(45 * 1000);
 
-        // ÉTAPE 2 — Injecter les cookies et attendre 1 minute
+        // ÉTAPE 2 — Injecter cookies + attendre 30s
         console.log('🍪 Injection des cookies...');
         for (const cookie of cookies) {
             const c = { ...cookie };
-            if (c.domain) c.domain = c.domain.replace('cracked.sh', 'cracked.ax');
+            if (c.domain) c.domain = c.domain.replace('cracked.ax', 'cracked.ax');
             delete c.storeId;
             delete c.hostOnly;
             try { await page.setCookie(c); } catch(e) {}
         }
-        console.log('✅ Cookies injectés. Attente 1 minute avant reload...');
-        await sleep(60 * 1000);
+        console.log('✅ Cookies injectés. Attente 30s...');
+        await sleep(30 * 1000);
 
-        // ÉTAPE 3 — Recharger la page en tant que connecté
+        // ÉTAPE 3 — Reload en connecté
         console.log('🔄 Rechargement de la page...');
         await page.reload({ waitUntil: 'domcontentloaded', timeout: 120000 });
         console.log('✅ Page rechargée.');
 
-        // ÉTAPE 4 — Attendre 30 secondes puis cliquer Marketplace
-        console.log('⏳ Attente 30s avant Marketplace...');
-        await sleep(30 * 1000);
+        // ÉTAPE 4 — 10s puis cliquer Marketplace
+        console.log('⏳ Attente 10s avant Marketplace...');
+        await sleep(10 * 1000);
 
         console.log('🛒 Clic sur Marketplace...');
         try {
@@ -64,7 +63,6 @@ function sleep(ms) {
                     document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null
                 ).singleNodeValue;
                 if (btn) { btn.click(); return; }
-
                 const links = document.querySelectorAll('#shoutbox ul li a');
                 for (const link of links) {
                     if (link.textContent.trim().toLowerCase().includes('marketplace')) {
@@ -77,9 +75,9 @@ function sleep(ms) {
             console.log('⚠️ Marketplace introuvable, on continue...');
         }
 
-        // ÉTAPE 5 — Attendre 10 secondes puis coller le message
-        console.log('⏳ Attente 10s avant de coller le message...');
-        await sleep(10 * 1000);
+        // ÉTAPE 5 — 5s puis coller le message
+        console.log('⏳ Attente 5s avant collage...');
+        await sleep(5 * 1000);
 
         console.log('✍️ Collage du message...');
         const pasted = await page.evaluate((msg) => {
@@ -99,9 +97,9 @@ function sleep(ms) {
         }
         console.log('✅ Message collé');
 
-        // ÉTAPE 6 — Attendre 10 secondes puis envoyer
-        console.log('⏳ Attente 10s avant envoi...');
-        await sleep(10 * 1000);
+        // ÉTAPE 6 — 3s puis envoyer
+        console.log('⏳ Attente 3s avant envoi...');
+        await sleep(3 * 1000);
 
         console.log('📩 Envoi du message...');
         await page.evaluate(() => {
@@ -119,9 +117,9 @@ function sleep(ms) {
         });
         console.log('✅ Message envoyé');
 
-        // ÉTAPE 7 — Attendre 10 secondes puis fermer
-        console.log('⏳ Attente 10s avant fermeture...');
-        await sleep(10 * 1000);
+        // ÉTAPE 7 — 3s puis fermer
+        console.log('⏳ Attente 3s avant fermeture...');
+        await sleep(3 * 1000);
         console.log('👋 Fermeture du navigateur');
 
     } catch (err) {
