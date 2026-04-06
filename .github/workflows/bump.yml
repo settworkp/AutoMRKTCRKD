@@ -1,30 +1,33 @@
-name: Cracked Marketplace Bump
+name: Auto Post Cracked
 
 on:
-  workflow_dispatch:           # Déclenché uniquement par cron-job.org ou manuellement
+  schedule:
+    - cron: '*/30 * * * *'   # toutes les 30 minutes
+  workflow_dispatch:
 
 jobs:
   bump:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: 20
 
-      - name: Install Chromium
+      - name: Installer Chromium
         run: |
           sudo apt-get update
           sudo apt-get install -y chromium-browser
 
-      - name: Install dependencies
+      - name: Installer dépendances
         run: npm install
 
-      - name: Run bump script
+      - name: Lancer le bot
         env:
           COOKIES_JSON: ${{ secrets.COOKIES_JSON }}
           PUPPETEER_EXEC_PATH: /usr/bin/chromium-browser
