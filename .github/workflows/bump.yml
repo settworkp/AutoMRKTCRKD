@@ -30,3 +30,10 @@ jobs:
           COOKIES_JSON: ${{ secrets.COOKIES_JSON }}
           PUPPETEER_EXEC_PATH: /usr/bin/chromium-browser
         run: node bump.js
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: screenshot_*.png
