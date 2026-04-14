@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer-core');
 
-const MESSAGE = '**💎🚀📈 ＳＩＧＮＡＴＵＲＥ　ＳＰＯＴ　ＦＯＲ　ＳＡＬＥ / ＧＲＯＷ　ＹＯＵＲ　ＢＵＳＩＮＥＳＳ　ＮＯＷ 📈🚀💎** https://cracked.sh/Thread-SIGNATURE-SPOTS-FOR-SALE--1901057';
+const MESSAGE = '**💎🚀📈 ＳＩＧＮＡＴＵＲＥ　ＳＰＯＴ　ＦＯＲ　ＳＡＬＥ / ＧＲＯＷ　ＹＯＵＲ　ＢＵＳＩＮＥＳＳ　ＮＯＷ 📈🚀💎** https://cracked.ax/Thread-SIGNATURE-SPOTS-FOR-SALE--1901057';
 
 function sleep(ms) {
     return new Promise(r => setTimeout(r, ms));
@@ -39,7 +39,7 @@ function sleep(ms) {
         console.log('🍪 Injection des cookies...');
         for (const cookie of cookies) {
             const c = { ...cookie };
-            if (c.domain) c.domain = c.domain.replace('cracked.sh', 'cracked.ax');
+            if (c.domain) c.domain = c.domain.replace('cracked.ax', 'cracked.ax');
             delete c.storeId;
             delete c.hostOnly;
             try { await page.setCookie(c); } catch(e) {}
