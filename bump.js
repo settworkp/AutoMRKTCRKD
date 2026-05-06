@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer-core');
 
-const MESSAGE = '**💎🚀📈 ＳＩＧＮＡＴＵＲＥ　ＳＰＯＴ　ＦＯＲ　ＳＡＬＥ / ＧＲＯＷ　ＹＯＵＲ　ＢＵＳＩＮＥＳＳ　ＮＯＷ 📈🚀💎** https://cracked.ax/Thread-SIGNATURE-SPOTS-FOR-SALE--1901057';
+const MESSAGE = '**💎🚀📈 ＳＩＧＮＡＴＵＲＥ　ＳＰＯＴ　ＦＯＲ　ＳＡＬＥ / ＧＲＯＷ　ＹＯＵＲ　ＢＵＳＩＮＥＳＳ　ＮＯＷ 📈🚀💎** https://cracked.st/Thread-SIGNATURE-SPOTS-FOR-SALE--1901057';
 
 function sleep(ms) {
     return new Promise(r => setTimeout(r, ms));
@@ -29,9 +29,9 @@ function sleep(ms) {
     try {
         console.log('🚀 Démarrage du bot...');
 
-        // ÉTAPE 1 — Charger cracked.ax + attendre 20s
-        console.log('🌐 Navigation vers cracked.ax...');
-        await page.goto('https://cracked.ax', { waitUntil: 'domcontentloaded', timeout: 120000 });
+        // ÉTAPE 1 — Charger cracked.st + attendre 20s
+        console.log('🌐 Navigation vers cracked.st...');
+        await page.goto('https://cracked.st', { waitUntil: 'domcontentloaded', timeout: 120000 });
         console.log('✅ Page chargée. Attente 20s...');
         await sleep(20 * 1000);
 
@@ -39,7 +39,7 @@ function sleep(ms) {
         console.log('🍪 Injection des cookies...');
         for (const cookie of cookies) {
             const c = { ...cookie };
-            if (c.domain) c.domain = c.domain.replace('cracked.ax', 'cracked.ax');
+            if (c.domain) c.domain = c.domain.replace('cracked.st', 'cracked.st');
             delete c.storeId;
             delete c.hostOnly;
             try { await page.setCookie(c); } catch(e) {}
